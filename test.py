@@ -1,11 +1,7 @@
-#%%
 import pandas as pd
 import streamlit as st
-from datetime import datetime, timedelta
-from streamlit_date_picker import date_range_picker, date_picker, PickerType
 from sqlalchemy import create_engine
 
-# %%
 username = 'usinag87_matheus'  # Seu nome de usuário
 password = '%40Elohim32'  # Sua senha
 host = 'usinagemelohim.com.br'  # O endereço do servidor MySQL
@@ -23,4 +19,9 @@ query_ordens = "SELECT * FROM ordens"
 query_pedidos = "SELECT * FROM pedidos"
 ordens = pd.read_sql(query_ordens, engine)
 pedidos = pd.read_sql(query_pedidos,engine)
-# %%
+
+col1,col2 = st.columns(2)
+
+with col1:
+    col1.table(ordens)
+
